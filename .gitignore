@@ -2,3 +2,4 @@
 *.mti
 *.bak
 work/
+*.sublime-workspace

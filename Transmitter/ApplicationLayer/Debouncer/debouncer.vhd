@@ -42,4 +42,3 @@ begin
         end if;
     end process com_debouncer; 
 end behav;
-    
