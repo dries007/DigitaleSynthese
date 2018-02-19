@@ -1,0 +1,548 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"PRINT",
+				"PRINT"
+			],
+			[
+				"P",
+				"PRINTLN"
+			],
+			[
+				"en",
+				"enough"
+			],
+			[
+				"N",
+				"NUM_BYTES"
+			],
+			[
+				"PRINTV",
+				"PRINTVARLN"
+			],
+			[
+				"PR",
+				"PRINTLN"
+			],
+			[
+				"print",
+				"printf\tprintf …"
+			],
+			[
+				"textc",
+				"\\textsc{}"
+			],
+			[
+				"Ri",
+				"\\Rightarrow"
+			],
+			[
+				"subs",
+				"\\subsection{}"
+			],
+			[
+				"foot",
+				"\\footnote"
+			],
+			[
+				"mar",
+				"margin"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					""
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Traditional"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"PdfLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"XeLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"LuaLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Basic Builder"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Basic Builder - PdfLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Basic Builder - XeLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Basic Builder - LuaLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Script Builder"
+				]
+			],
+			[
+				"Packages/LaTeXTools/LaTeX.sublime-build",
+				"PdfLaTeX"
+			]
+		],
+		[
+			[
+				[
+					"Packages/arduino-cli/arduino-cli.sublime-build",
+					""
+				],
+				[
+					"Packages/arduino-cli/arduino-cli.sublime-build",
+					"just build"
+				],
+				[
+					"Packages/arduino-cli/arduino-cli.sublime-build",
+					"build and upload"
+				]
+			],
+			[
+				"Packages/arduino-cli/arduino-cli.sublime-build",
+				"build and upload"
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "pack",
+		"selected_items":
+		[
+			[
+				"pack",
+				"Package Control: Enable Package"
+			],
+			[
+				"latex ",
+				"LaTeXTools: Open Detexify"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"p",
+				"Package Control: Install Package"
+			],
+			[
+				"package control insta",
+				"Package Control: Install Package"
+			],
+			[
+				"preview",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"preview ",
+				"Markdown Preview: Open Markdown Cheat sheet"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"indent",
+				"Indent XML"
+			],
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"wra",
+				"Word Wrap: Toggle"
+			],
+			[
+				"word ",
+				"Word Wrap: Toggle"
+			],
+			[
+				"markdown prev",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"git push",
+				"Git: Push"
+			],
+			[
+				"git comm",
+				"Git: Commit"
+			],
+			[
+				"git add",
+				"Git: Add All"
+			],
+			[
+				"termi",
+				"Terminal: Open"
+			],
+			[
+				"syntax git",
+				"Set Syntax: Git Ignore"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"markdown pre",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"markdown",
+				"Set Syntax: Markdown GFM"
+			],
+			[
+				"ke",
+				"Preferences: Key Bindings - User"
+			],
+			[
+				"key",
+				"Preferences: Key Bindings - Default"
+			],
+			[
+				"mark",
+				"MarkdownEditing: New Reference"
+			],
+			[
+				"add miss",
+				"MarkdownEditing: Add Missing Link Labels"
+			],
+			[
+				"disable ",
+				"Package Control: Disable Package"
+			],
+			[
+				"json",
+				"Set Syntax: JSON"
+			],
+			[
+				"markdown ",
+				"MarkdownEditing: Organize References"
+			],
+			[
+				"packa remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"packa in",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Add Channel"
+			],
+			[
+				"giti",
+				"Gitignore: New gitignore"
+			],
+			[
+				"Package Control: install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: insta",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 515.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/dries/Projects/DigitaleSynthese",
+		"/home/dries/Projects/DigitaleSynthese/Tx",
+		"/home/dries/Projects/DigitaleSynthese/Tx/ApplicationLayer",
+		"/home/dries/Projects/DigitaleSynthese/Tx/ApplicationLayer/Debouncer"
+	],
+	"file_history":
+	[
+		"/home/dries/CloudStation/School/AnaloogOntwerp/doc_data.txt",
+		"/home/dries/CloudStation/School/AnaloogOntwerp/pg_0001.txt",
+		"/home/dries/CloudStation/School/AnaloogOntwerp/LaboAnaloogOntwerp.txt",
+		"/home/dries/Projects/OpenGL/run/gegev.dat",
+		"/home/dries/Downloads/gegev_old.dat",
+		"/home/dries/.cache/.fr-hc9RJx/glut-3.7.6-bin/README-win32.txt",
+		"/home/dries/Downloads/gegev (1).dat",
+		"/home/dries/intelFPGA/17.1/modelsim_ase/vco",
+		"/home/dries/bin/modelsim",
+		"/run/media/dries/DRIESKENNES/ModelSim_17.1_Linux/ModelSim.desktop",
+		"/home/dries/Projects/AVR_SK6812RGBW/KiCad/MainSheet.kicad_pcb",
+		"/home/dries/tmp/u-boot-philip/include/config_defaults.h",
+		"/home/dries/tmp/u-boot-philip/include/config_cmd_default.h",
+		"/home/dries/tmp/u-boot-philip/Kconfig",
+		"/run/user/1000/gvfs/sftp:host=vps3_root/srv/http/vps3/index.html",
+		"/run/user/1000/gvfs/sftp:host=vps3_root/srv/http/vps3/cpu.php",
+		"/home/dries/.cache/.fr-CwzfJk/glut-3.7.6-bin/README-win32.txt",
+		"/home/dries/.cache/.fr-2Kzlxm/server.properties",
+		"/home/dries/Downloads/gegev.dat",
+		"/home/dries/.cache/.fr-PRWsVd/README.txt",
+		"/home/dries/.ssh/Darkosto",
+		"/home/dries/Wallpapers3/sources",
+		"/home/dries/.cache/.fr-Ja3PRv/ReadMe.txt",
+		"/home/dries/.cache/.fr-kp96YB/readme.txt",
+		"/home/dries/KSP/feb2018/GameData/NearFutureProps/Versioning/NearFutureProps.version",
+		"/home/dries/Projects/minecraft/CurseMeta/experiments/ClientLoginService.cs",
+		"/home/dries/Projects/minecraft/CurseMeta/experiments/SoapUI-5.4.0/bin/soapui.sh",
+		"/home/dries/Projects/minecraft/CurseMeta/experiments/AddOnService.cs",
+		"/tmp/xa-K986DZ/hourly (1).json",
+		"/tmp/xa-Z0D6DZ/complete (3).json",
+		"/home/dries/.cache/.fr-0rN1z6/turtl-linux64/install.sh",
+		"/home/dries/.xsession-errors",
+		"/home/dries/.bashrc",
+		"/home/dries/Downloads/CWBP-master/functions.php",
+		"/home/dries/Downloads/CWBP-master/index.php",
+		"/media/data/Porn/Erotica/Sissy.txt",
+		"/media/data/Porn/Erotica/Popping Andy's Nuts.txt",
+		"/home/dries/CloudStation/Docs/ToDo.md",
+		"/media/data/Porn/Erotica/Respect.txt",
+		"/media/data/Porn/Erotica/Girl genius.txt",
+		"/home/dries/.cache/.fr-Cxxaxa/plugin.yml",
+		"/home/dries/.cache/.fr-QeJdO1/plugin.yml",
+		"/home/dries/.cache/.fr-R7agXy/plugin.yml",
+		"/home/dries/.cache/.fr-cRv0lZ/plugin.yml",
+		"/home/dries/.cache/.fr-6BMn1s/plugin.yml",
+		"/run/user/1000/gvfs/smb-share:server=nas.local,share=fileshare/MinervaPrijslijst/fotos.sh",
+		"/home/dries/Downloads/build (1).gradle",
+		"/home/dries/.cache/.fr-jBJjWn/META-INF/MANIFEST.MF",
+		"/home/dries/.cache/.fr-XDnDqV/META-INF/MANIFEST.MF",
+		"/home/dries/.cache/.fr-JNXhJk/META-INF/MANIFEST.MF",
+		"/home/dries/.cache/.fr-iEjd5l/META-INF/MANIFEST.MF",
+		"/home/dries/.cache/.fr-vkG25H/META-INF/NOTICE.txt"
+	],
+	"find":
+	{
+		"height": 27.0
+	},
+	"find_in_files":
+	{
+		"height": 101.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 39.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 188.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git":
+	{
+		"height": 106.0
+	},
+	"output.latextools":
+	{
+		"height": 126.0
+	},
+	"output.markdown":
+	{
+		"height": 126.0
+	},
+	"output.mde":
+	{
+		"height": 106.0
+	},
+	"output.stino_build_panel":
+	{
+		"height": 126.0
+	},
+	"output.stino_panel":
+	{
+		"height": 126.0
+	},
+	"pinned_build_system": "Packages/arduino-cli/arduino-cli.sublime-build",
+	"project": "DigitaleSynthese.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"~/Projects/AVR_SK6812RGBW/AVR_SK6812RGBW.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 229.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+		"max_columns": 2
+	}
+}
