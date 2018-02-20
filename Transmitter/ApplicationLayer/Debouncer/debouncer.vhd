@@ -14,9 +14,9 @@ entity debouncer is
 end debouncer;
 
 architecture behav of debouncer is
-    
-signal pres_sr, next_sr: std_logic_vector(3 downto 0);
-signal sl_ldb: std_logic;
+
+    signal pres_sr, next_sr: std_logic_vector(3 downto 0);
+    signal sh_ldb: std_logic;
 
 begin
     syncha <= pres_sr(0);
@@ -24,7 +24,7 @@ begin
 
     syn_debouncer: process(clk)
     begin
-        if rising_edge(clk) then
+        if (rising_edge(clk) and clk_en = '1') then
             if rst = '1' then
                 pres_sr <= (others => '0');
             else
@@ -35,10 +35,10 @@ begin
 
     com_debouncer: process(pres_sr, cha, sh_ldb)
     begin
-        if (sh_ldb = '1') then
+        if sh_ldb = '1' then
             next_sr <= cha & pres_sr(3 DOWNTO 1);
         else
-            next_count <= pres_count - "0001";
+            next_sr <= (others => pres_sr(0));
         end if;
     end process com_debouncer; 
 end behav;

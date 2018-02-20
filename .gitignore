@@ -1,5 +1,7 @@
 *.mpf
 *.mti
 *.bak
+*.wlf
 work/
 *.sublime-workspace
+transcript
