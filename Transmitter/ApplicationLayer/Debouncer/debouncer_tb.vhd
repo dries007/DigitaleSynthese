@@ -9,13 +9,14 @@ end debouncer_tb;
 architecture structural of debouncer_tb is
 
     component debouncer is
-      port (
-        clk: in std_logic;
-        clk_en: in std_logic;
-        rst: in std_logic;
-        cha: in std_logic;
-        syncha: out std_logic
-      );
+        port (
+            clk: in std_logic;
+            clk_en: in std_logic;
+            rst: in std_logic;
+
+            cha: in std_logic;
+            syncha: out std_logic
+        );
     end component;
 
     for uut : debouncer use entity work.debouncer(behav);
@@ -26,18 +27,20 @@ architecture structural of debouncer_tb is
     signal end_of_sim : boolean := false;
 
     signal clk_s:  std_logic;
-    signal rst_s:  std_logic;
-    signal cha_s:  std_logic;
     signal clk_en_s: std_logic;
+    signal rst_s:  std_logic;
+
+    signal cha_s:  std_logic;
     signal syncha_s: std_logic;
 
 begin
 
     uut: debouncer PORT MAP(
         clk => clk_s,
-        rst => rst_s,
-        cha => cha_s,
         clk_en => clk_en_s,
+        rst => rst_s,
+
+        cha => cha_s,
         syncha => syncha_s
     );
 
@@ -70,7 +73,7 @@ begin
         tbvector ("011");
         wait for 3*period;
 
-	-- simulating bouncing
+	    -- simulating bouncing
         tbvector("011");
         wait for period/3;
         tbvector("010");

@@ -4,13 +4,14 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 
 entity debouncer is
-  port (
-    clk: in std_logic;
-    clk_en: in std_logic;
-    rst: in std_logic;
-    cha: in std_logic;
-    syncha: out std_logic
-  );
+    port (
+        clk: in std_logic;
+        clk_en: in std_logic;
+        rst: in std_logic;
+        
+        cha: in std_logic;
+        syncha: out std_logic
+    );
 end debouncer;
 
 architecture behav of debouncer is

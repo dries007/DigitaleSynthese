@@ -5,3 +5,4 @@
 work/
 *.sublime-workspace
 transcript
+*.vstf

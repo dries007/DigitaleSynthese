@@ -6,14 +6,15 @@ use IEEE.std_logic_arith.all;
 use IEEE.std_logic_unsigned.all;
 
 entity counter is
-  port (
-    clk: in std_logic;
-    clk_en: in std_logic;
-    rst: in std_logic;
-    cnt_up: in std_logic;
-    cnt_down: in std_logic;
-    cnt: out std_logic_vector(3 downto 0)
-  );
+    port (
+        clk: in std_logic;
+        clk_en: in std_logic;
+        rst: in std_logic;
+        
+        cnt_up: in std_logic;
+        cnt_down: in std_logic;
+        cnt: out std_logic_vector(3 downto 0)
+    );
 end counter;
 
 

@@ -9,14 +9,15 @@ end counter_tb;
 architecture structural of counter_tb is
 
     component counter is
-      port (
-        clk: in std_logic;
-        clk_en: in std_logic;
-        rst: in std_logic;
-        cnt_up: in std_logic;
-        cnt_down: in std_logic;
-        cnt: out std_logic_vector(3 downto 0)
-      );
+        port (
+            clk: in std_logic;
+            clk_en: in std_logic;
+            rst: in std_logic;
+
+            cnt_up: in std_logic;
+            cnt_down: in std_logic;
+            cnt: out std_logic_vector(3 downto 0)
+        );
     end component;
 
     for uut : counter use entity work.counter(behav);
@@ -26,9 +27,9 @@ architecture structural of counter_tb is
 
     signal end_of_sim : boolean := false;
 
-    signal rst_s: std_logic;
     signal clk_s: std_logic;
     signal clk_en_s: std_logic;
+    signal rst_s: std_logic;
     
     signal cnt_up_s: std_logic;
     signal cnt_down_s: std_logic;
@@ -76,7 +77,7 @@ begin
         rst_s <= '0';
         wait for 5*period;
 
-	    -- simulating couting
+        -- simulating couting
         tbvector("00");
         wait for period;
 
