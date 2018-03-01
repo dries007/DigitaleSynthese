@@ -4,5 +4,5 @@ No copying!
 
 
 
-The (vb)[/vb/] folder are the examples provided.
+The [vb](/vb/) folder are the examples provided.
 

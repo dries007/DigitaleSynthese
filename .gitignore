@@ -6,3 +6,5 @@ work/
 *.sublime-workspace
 transcript
 *.vstf
+*.vcd
+simu/

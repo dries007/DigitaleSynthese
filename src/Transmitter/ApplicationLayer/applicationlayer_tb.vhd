@@ -92,7 +92,7 @@ begin
             tbvector("01"); wait for period/6;
             tbvector("00"); wait for 2*period/3;
             -- done bouncing
-            wait for 4*period;
+            wait for 5*period;
 
             -- simulating bouncing up
             tbvector("00"); wait for period/2;
@@ -107,6 +107,8 @@ begin
             wait for 5*period;
         end loop;
 
+        wait for 10*period;
+
         for i in 0 to 7
         loop
             -- simulating bouncing down
@@ -119,7 +121,7 @@ begin
             tbvector("10"); wait for period/6;
             tbvector("00"); wait for 2*period/3;
             -- done bouncing
-            wait for 4*period;
+            wait for 5*period;
 
             -- simulating bouncing down
             tbvector("00"); wait for period/2;

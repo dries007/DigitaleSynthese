@@ -18,7 +18,6 @@ entity applicationlayer is
     );
 end applicationlayer;
 
-
 architecture structural of applicationlayer is
     component debouncer is
         port (
