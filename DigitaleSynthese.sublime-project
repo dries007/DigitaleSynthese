@@ -5,10 +5,12 @@
 			"path": "."
 		}
 	],
-    "build-systems":
+    "build_systems":
     [
         {
-            "name": ""
+            "name": "GHDL",
+            "working_dir": "${project_path:}",
+            "shell_cmd": "pwd; mkdir -p simu; shopt -s globstar; ghdl -i --work=work --workdir=simu --std=93c --ieee=synopsys -fexplicit src/**/*.vhd; ghdl -m --work=work --workdir=simu --std=93c --ieee=synopsys -fexplicit $file_base_name; ghdl -r $file_base_name --vcd=simu/wave.vcd"
         }
     ]
 }
