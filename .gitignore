@@ -8,3 +8,5 @@ transcript
 *.vstf
 *.vcd
 simu/
+*.o
+
