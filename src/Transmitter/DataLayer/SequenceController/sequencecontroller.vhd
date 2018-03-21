@@ -1,0 +1,54 @@
+-- Dries Kennes
+-- Sequence Controller
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.std_logic_arith.all;
+use IEEE.std_logic_unsigned.all;
+
+entity sequencecontroller is
+  port (
+    clk: in std_logic;
+    clk_en: in std_logic;
+    rst: in std_logic;
+
+    ctrl: in std_logic;
+    load: out std_logic;
+    shift: out std_logic
+  );
+end entity;
+
+architecture behav of sequencecontroller is
+
+    signal pres_cnt, next_cnt: integer range 0 to 12;
+
+begin
+
+    sync_sq: process(clk)
+    begin
+        if (rising_edge(clk) and clk_en = '1') then
+            if rst = '1' then
+                pres_cnt <= 0;
+            else
+                pres_cnt <= next_cnt;
+            end if;
+        end if;
+    end process sync_sq;
+
+    comb_sq: process(pres_cnt, ctrl)
+    begin
+        next_cnt <= pres_cnt;
+        load <= '0';
+        shift <= '0';
+        if ctrl = '1' then
+            next_cnt <= pres_cnt + 1;
+            shift <= '1';
+            if pres_cnt = 0 then
+                shift <= '0';
+                load <= '1';
+            elsif pres_cnt = 10 then
+                next_cnt <= 0;
+            end if;
+        end if;
+    end process comb_sq;
+
+end architecture;

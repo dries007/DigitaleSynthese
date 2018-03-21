@@ -39,9 +39,9 @@ begin
     comb_counter: process(pres_cnt, cnt_down, cnt_up)
     begin
         if (cnt_up = '1' and cnt_down = '0') then
-            next_cnt <= pres_cnt + "0001";
+            next_cnt <= pres_cnt + 1;
         elsif (cnt_up = '0' and cnt_down = '1') then
-            next_cnt <= pres_cnt - "0001";
+            next_cnt <= pres_cnt - 1;
         else
             next_cnt <= pres_cnt;
         end if;

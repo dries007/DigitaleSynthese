@@ -1,5 +1,5 @@
 -- Dries Kennes
--- Demux Test
+-- Demux 4 to 1 Test
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.std_logic_arith.all;
@@ -57,7 +57,6 @@ begin
         sel_s <= "01"; wait for period;
         sel_s <= "10"; wait for period;
         sel_s <= "11"; wait for period;
-
 
         inp_s <= "1000"; wait for period;
         sel_s <= "00"; wait for period;

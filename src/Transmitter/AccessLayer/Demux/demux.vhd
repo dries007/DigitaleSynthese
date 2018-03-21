@@ -1,5 +1,5 @@
 -- Dries Kennes
--- Demux
+-- Demux 4 to 1
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.std_logic_arith.all;
