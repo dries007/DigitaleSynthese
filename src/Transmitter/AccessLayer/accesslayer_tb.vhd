@@ -70,6 +70,7 @@ begin
 
     tb : process
     begin
+        -- preset input
         dip_sw_s <= "00";
         sdo_posenc_s <= '0';
 
@@ -80,14 +81,16 @@ begin
         rst_s <= '0';
         wait for 5*period;
 
+        -- Mode 0
         dip_sw_s <= "00";
-        sdo_posenc_s <= '1';
-        wait for 5*period;
-        rst_s <= '1'; wait for period; rst_s <= '0'; wait for period;
-        wait for 32 * period;
-        sdo_posenc_s <= '0';
-        wait for 32 * period;
-
+        sdo_posenc_s <= '1'; --input data 1
+        wait for 5*period; -- partial pngen
+        rst_s <= '1'; wait for period; rst_s <= '0'; wait for period; -- reset
+        wait for 32 * period; -- 32x for pngen
+        sdo_posenc_s <= '0'; --input data 0
+        wait for 32 * period; -- 32x for pngen
+        -- Repeat for every mode
+        -- Mode 1
         dip_sw_s <= "01";
         sdo_posenc_s <= '1';
         wait for 5*period;
@@ -96,6 +99,7 @@ begin
         sdo_posenc_s <= '0';
         wait for 32 * period;
 
+        -- Mode 2
         dip_sw_s <= "10";
         sdo_posenc_s <= '1';
         wait for 5*period;
@@ -104,6 +108,7 @@ begin
         sdo_posenc_s <= '0';
         wait for 32 * period;
 
+        -- Mode 3
         dip_sw_s <= "11";
         sdo_posenc_s <= '1';
         wait for 5*period;

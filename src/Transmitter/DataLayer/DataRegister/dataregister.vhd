@@ -20,8 +20,8 @@ entity dataregister is
 end entity;
 
 architecture behav of dataregister is
-
-    signal pres_data, next_data: std_logic_vector(10 downto 0);
+    
+    signal pres_data, next_data: std_logic_vector(10 downto 0); -- 10 = 7 + 4 - 1
 
 begin
 
@@ -36,16 +36,17 @@ begin
         end if;
     end process sync_dataregister;
 
+    -- Top bit is data, shift left to output.
     outp <= pres_data(10);
 
     comb_dataregister: process(pres_data, load, shift)
     begin
         next_data <= pres_data;
         if shift = '1' then
-            next_data <= pres_data(9 downto 0) & '0';
+            next_data <= pres_data(9 downto 0) & '0'; -- 9 = 7 + 4 - 1 - 1
         end if;
         if load = '1' then
-            next_data <= "0111110" & data;
+            next_data <= "0111110" & data; -- Preamble
         end if;
     end process comb_dataregister;
 

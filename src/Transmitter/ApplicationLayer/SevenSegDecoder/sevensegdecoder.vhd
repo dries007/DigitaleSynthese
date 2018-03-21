@@ -18,7 +18,7 @@ begin
     comb_sevensegdecoder: process(inp)
     begin
         case inp is
-        --                            abcdefg
+        --    bin                     abcdefg
         when "0000" => outp <= (dp & "1111110"); -- 0
         when "0001" => outp <= (dp & "0011000"); -- 1
         when "0010" => outp <= (dp & "1101101"); -- 2
@@ -35,7 +35,7 @@ begin
         when "1101" => outp <= (dp & "0111101"); -- d
         when "1110" => outp <= (dp & "1001111"); -- e
         when "1111" => outp <= (dp & "1000111"); -- f
-        when others => outp <= (dp & "1111111"); -- CRAP
+        when others => outp <= (dp & "1111111"); -- oops
         end case;
     end process comb_sevensegdecoder;
 

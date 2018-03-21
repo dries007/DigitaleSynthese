@@ -20,6 +20,7 @@ architecture behav of debouncer is
     signal sh_ldb: std_logic;
 
 begin
+    -- "Shift out" at the bottom
     syncha <= pres_sr(0);
     sh_ldb <= pres_sr(0) XOR cha;
 
@@ -37,6 +38,7 @@ begin
     com_debouncer: process(pres_sr, cha, sh_ldb)
     begin
         if sh_ldb = '1' then
+            -- Shift in at the top
             next_sr <= cha & pres_sr(3 DOWNTO 1);
         else
             next_sr <= (others => pres_sr(0));

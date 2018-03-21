@@ -24,6 +24,7 @@ architecture behav of pngen is
     signal pres_sr2, next_sr2: std_logic_vector(4 downto 0);
 
 begin
+    -- Lowest bit is output.
     pn_ml1 <= pres_sr1(0);
     pn_ml2 <= pres_sr2(0);
     pn_gold <= pres_sr1(0) xor pres_sr2(0);
@@ -32,6 +33,7 @@ begin
     begin
         if (rising_edge(clk) and clk_en = '1') then
             if rst = '1' then
+                -- Non zero presets
                 pres_sr1 <= "00010";
                 pres_sr2 <= "00111";
             else
@@ -42,13 +44,17 @@ begin
     end process;
 
     comb_pngen : process(pres_sr1, pres_sr2)
+        -- GHDL doesn't like using xor in a conact, so use tmp variable.
         variable tmp: std_logic;
     begin
+        -- Shift in from the top.
         tmp := pres_sr1(0) xor pres_sr1(3);
         next_sr1 <= tmp & pres_sr1(4 downto 1);
+
         tmp := pres_sr2(0) xor pres_sr2(1) xor pres_sr2(3) xor pres_sr2(4);
         next_sr2 <= tmp & pres_sr2(4 downto 1);
 
+        -- Send out start pulse.
         if (pres_sr1 = "00010") then
             ctrl <= '1';
         else

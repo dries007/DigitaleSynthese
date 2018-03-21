@@ -63,6 +63,7 @@ begin
 
     tb : process
     begin
+        -- initial setup
         ctrl_s <= '0';
         clk_en_s <= '1';
         -- reset
@@ -71,11 +72,13 @@ begin
         rst_s <= '0';
         wait for 5*period;
 
+        -- outer loop
         for i in 0 to 50
         loop
             ctrl_s <= '1';
             wait for period;
             ctrl_s <= '0';
+            -- inner loop (wait 30 clocks for data from pngen)
             wait for 30*period;
         end loop;
 

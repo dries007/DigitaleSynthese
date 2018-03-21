@@ -36,17 +36,18 @@ begin
 
     comb_sq: process(pres_cnt, ctrl)
     begin
+        -- Set defaults
         next_cnt <= pres_cnt;
         load <= '0';
         shift <= '0';
         if ctrl = '1' then
-            next_cnt <= pres_cnt + 1;
-            shift <= '1';
+            next_cnt <= pres_cnt + 1; -- Override prev default
+            shift <= '1'; -- Override prev default
             if pres_cnt = 0 then
-                shift <= '0';
-                load <= '1';
+                shift <= '0'; -- Override prev default
+                load <= '1';  -- Override prev default
             elsif pres_cnt = 10 then
-                next_cnt <= 0;
+                next_cnt <= 0; -- Reset counter
             end if;
         end if;
     end process comb_sq;

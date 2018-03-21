@@ -17,7 +17,7 @@ entity edgedetect is
 end edgedetect;
 
 architecture behav of edgedetect is
-
+    -- Oh look, a proper state machine :)
     type states is (w1, p1, w0);
 
     signal pres_state : states;

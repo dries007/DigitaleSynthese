@@ -1,5 +1,6 @@
 -- Dries Kennes
 -- Demux 4 to 1 Test
+-- ASYNC
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.std_logic_arith.all;
@@ -51,6 +52,7 @@ begin
         sel_s <= "10"; wait for period;
         sel_s <= "11"; wait for period;
 
+        -- Skip some combinations.
 
         inp_s <= "0101"; wait for period;
         sel_s <= "00"; wait for period;

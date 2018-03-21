@@ -69,6 +69,7 @@ begin
 
     tb : process
     begin
+        -- initial inputs
         load_s <= '0';
         shift_s <= '0';
         data_s <= "0000";
@@ -80,12 +81,14 @@ begin
         rst_s <= '0';
         wait for 5*period;
 
+        -- Outer loop: data read at the start of the loop, inc data at end.
         for j in 0 to 25
         loop
             load_s <= '1';
             wait for period;
             load_s <= '0';
 
+            -- Inner loop: Shift data out
             for i in 0 to 9
             loop
                 shift_s <= '1';

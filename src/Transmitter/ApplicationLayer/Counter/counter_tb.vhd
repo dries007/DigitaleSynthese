@@ -62,6 +62,7 @@ begin
     end process clock;
 
     tb : process
+
     procedure tbvector(constant stimvect : in std_logic_vector(1 downto 0)) is
     begin
         cnt_up_s <= stimvect(0);
@@ -69,6 +70,7 @@ begin
     end tbvector;
 
     begin
+        -- starting values
         tbvector("00");
         clk_en_s <= '1';
         -- reset
@@ -81,6 +83,7 @@ begin
         tbvector("00");
         wait for period;
 
+        -- count down x 4
         tbvector("10");
         wait for period;
         tbvector("10");
@@ -91,6 +94,7 @@ begin
         tbvector("00");
         wait for period * 3;
 
+        -- count up x 3
         tbvector("01");
         wait for period;
         tbvector("01");
@@ -101,6 +105,7 @@ begin
         tbvector("00");
         wait for period * 3;
 
+        -- count up x 6
         tbvector("01");
         wait for period;
         tbvector("01");

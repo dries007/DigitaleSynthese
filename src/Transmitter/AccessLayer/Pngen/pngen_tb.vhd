@@ -75,13 +75,16 @@ begin
         rst_s <= '0';
         wait for 5*period;
 
+        -- Generates input based on output clock, so no inputs here.
         wait for 5*period;
 
+        -- Test reset in middle of squence
         rst_s <= '1';
         wait for period;
         rst_s <= '0';
         wait for period;
 
+        -- Generate enough output to get more than 1 squence.
         wait for 64 * period;
 
         -- end of sim

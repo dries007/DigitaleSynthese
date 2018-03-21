@@ -67,6 +67,7 @@ begin
     end tbvector;
 
     begin
+        -- Starting values
         tbvector("0");
         clk_en_s <= '1';
         -- reset
@@ -75,6 +76,7 @@ begin
         rst_s <= '0';
         wait for 5*period;
 
+        -- 'normal' pulses
         tbvector("0");
         wait for 2*period;
         tbvector("1");
@@ -84,6 +86,7 @@ begin
         tbvector("1");
         wait for 5*period;
         
+        -- test for quick pulse
         tbvector("0");
         wait for period;
         tbvector("1");
@@ -92,8 +95,6 @@ begin
         wait for period;
         tbvector("1");
         wait for period;
-
-        
         tbvector("0");
         wait for period;
         tbvector("1");

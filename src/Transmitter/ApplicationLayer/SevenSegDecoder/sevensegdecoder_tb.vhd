@@ -44,24 +44,24 @@ begin
     end tbvector;
 
     begin
-        dp_s <= '0';
-        tbvector("0000"); wait for period;
-        tbvector("0001"); wait for period;
-        tbvector("0010"); wait for period;
-        tbvector("0011"); wait for period;
-        tbvector("0100"); wait for period;
-        tbvector("0101"); wait for period;
-        tbvector("0110"); wait for period;
-        tbvector("0111"); wait for period;
-        dp_s <= '1';
-        tbvector("1000"); wait for period;
-        tbvector("1001"); wait for period;
-        tbvector("1010"); wait for period;
-        tbvector("1011"); wait for period;
-        tbvector("1100"); wait for period;
-        tbvector("1101"); wait for period;
-        tbvector("1110"); wait for period;
-        tbvector("1111"); wait for period;
+        dp_s <= '0'; -- Decimal point
+        tbvector("0000"); wait for period; -- 0
+        tbvector("0001"); wait for period; -- 1
+        tbvector("0010"); wait for period; -- 2
+        tbvector("0011"); wait for period; -- 3
+        tbvector("0100"); wait for period; -- 4
+        tbvector("0101"); wait for period; -- 5
+        tbvector("0110"); wait for period; -- 6
+        tbvector("0111"); wait for period; -- 7
+        dp_s <= '1'; 
+        tbvector("1000"); wait for period; -- 8
+        tbvector("1001"); wait for period; -- 9
+        tbvector("1010"); wait for period; -- A
+        tbvector("1011"); wait for period; -- B
+        tbvector("1100"); wait for period; -- C
+        tbvector("1101"); wait for period; -- D
+        tbvector("1110"); wait for period; -- E
+        tbvector("1111"); wait for period; -- F
         
         -- end of sim
         end_of_sim <= true;

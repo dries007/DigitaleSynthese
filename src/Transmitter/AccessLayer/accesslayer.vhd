@@ -67,6 +67,8 @@ begin
         ctrl => ctrl
     );
 
+    -- Combinatorial signals
+
     pn_lm1_xor_s <= pn_ml1_s xor sdo_posenc;
     pn_lm2_xor_s <= pn_ml2_s xor sdo_posenc;
     pn_gold_xor_s <= pn_gold_s xor sdo_posenc;

@@ -80,6 +80,8 @@ begin
         rst_s <= '0';
         wait for 5*period;
 
+        -- This TB is a combination of the previous test benches, with bounced inputs.
+
         for i in 0 to 3
         loop
             -- simulating bouncing up
