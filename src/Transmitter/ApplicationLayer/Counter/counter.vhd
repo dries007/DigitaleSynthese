@@ -6,9 +6,6 @@ use IEEE.std_logic_arith.all;
 use IEEE.std_logic_unsigned.all;
 
 entity counter is
-    generic (
-        N: integer -- Number of bits
-    );
     port (
         clk: in std_logic;
         clk_en: in std_logic;
@@ -16,14 +13,14 @@ entity counter is
         
         cnt_up: in std_logic;
         cnt_down: in std_logic;
-        cnt: out std_logic_vector(N downto 0)
+        cnt: out std_logic_vector -- No size, no generics
     );
 end counter;
 
 
 architecture behav of counter is
 
-    signal pres_cnt, next_cnt: std_logic_vector(N downto 0);
+    signal pres_cnt, next_cnt: std_logic_vector(cnt'length-1 downto 0);
 
 begin
     cnt <= pres_cnt;

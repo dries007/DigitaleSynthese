@@ -19,7 +19,7 @@ end entity;
 
 architecture behav of sequencecontroller is
 
-    signal pres_cnt, next_cnt: integer range 0 to 12;
+    signal pres_cnt, next_cnt: integer range 0 to 11;
 
 begin
 
