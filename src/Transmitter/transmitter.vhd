@@ -48,6 +48,19 @@ architecture structural of transmitter is
     end component;
     for all_lay: applicationlayer use entity work.applicationlayer(structural);
 
+    component datalayer is
+        port (
+            clk: in std_logic;
+            clk_en: in std_logic;
+            rst: in std_logic;
+
+            ctrl: in std_logic;
+            count: in std_logic_vector(3 downto 0);
+            sdo_posenc: out std_logic
+        );
+    end component;
+    for dat_lay: datalayer use entity work.datalayer(structural);
+
     signal ctrl_s : std_logic;
     signal sdo_posenc_s : std_logic;
     signal count_s : std_logic_vector(3 downto 0);
@@ -73,6 +86,16 @@ begin
         down => down,
         count => count_s,
         segments => segments
+    );
+
+    dat_lay: datalayer port map(
+        clk => clk,
+        clk_en => clk_en,
+        rst => rst,
+
+        ctrl => ctrl_s,
+        count => count_s,
+        sdo_posenc => sdo_posenc_s
     );
 
     -- todo datalayer
