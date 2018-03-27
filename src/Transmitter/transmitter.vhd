@@ -20,7 +20,7 @@ entity transmitter is
 end entity;
 
 architecture structural of transmitter is
-    component accesslayer is
+    component accesslayertx is
         port (
             clk: in std_logic;
             clk_en: in std_logic;
@@ -32,7 +32,7 @@ architecture structural of transmitter is
             sdo_spread: out std_logic
         );
     end component;
-    for acc_lay: accesslayer use entity work.accesslayer(structural);
+    for acc_lay: accesslayertx use entity work.accesslayertx(structural);
 
     component applicationlayer is
         port (
@@ -66,7 +66,7 @@ architecture structural of transmitter is
     signal count_s : std_logic_vector(3 downto 0);
 
 begin
-    acc_lay: accesslayer port map(
+    acc_lay: accesslayertx port map(
         clk => clk,
         clk_en => clk_en,
         rst => rst,

@@ -10,7 +10,7 @@
         {
             "name": "GHDL",
             "working_dir": "${project_path}/simu",
-            "shell_cmd": "mkdir -p work; shopt -s globstar; ghdl -i --workdir=work --std=93c --ieee=synopsys -fexplicit ../src/**/*.vhd; ghdl -m --workdir=work --std=93c --ieee=synopsys -fexplicit $file_base_name; ghdl -r $file_base_name --vcd=wave.vcd"
+            "shell_cmd": "mkdir -p work; shopt -s globstar; ghdl -i --workdir=work --std=93c --ieee=synopsys -fexplicit ../src/**/*.vhd; ghdl -m --workdir=work --std=93c --ieee=synopsys -fexplicit $file_base_name; ghdl -r $file_base_name --wave=wave.ghw"
         }
     ]
 }

@@ -5,7 +5,7 @@ use IEEE.std_logic_1164.all;
 use IEEE.std_logic_arith.all;
 use IEEE.std_logic_unsigned.all;
 
-entity accesslayer is
+entity accesslayertx is
     port (
         clk: in std_logic;
         clk_en: in std_logic;
@@ -18,7 +18,7 @@ entity accesslayer is
     );
 end entity;
 
-architecture structural of accesslayer is
+architecture structural of accesslayertx is
     
     component demux is
         port (

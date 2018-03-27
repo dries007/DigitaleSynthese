@@ -5,12 +5,12 @@ use IEEE.std_logic_1164.all;
 use IEEE.std_logic_arith.all;
 use IEEE.std_logic_unsigned.all;
 
-entity accesslayer_tb is
+entity accesslayertx_tb is
 end entity;
 
-architecture structural of accesslayer_tb is
+architecture structural of accesslayertx_tb is
 
-    component accesslayer is
+    component accesslayertx is
         port (
             clk: in std_logic;
             clk_en: in std_logic;
@@ -23,7 +23,7 @@ architecture structural of accesslayer_tb is
         );
     end component;
 
-    for uut : accesslayer use entity work.accesslayer(structural);
+    for uut : accesslayertx use entity work.accesslayertx(structural);
 
     constant period : time := 100 ns;
     constant delay  : time :=  10 ns;
@@ -41,7 +41,7 @@ architecture structural of accesslayer_tb is
 
 begin
 
-    uut: accesslayer PORT MAP(
+    uut: accesslayertx PORT MAP(
         clk => clk_s,
         clk_en => clk_en_s,
         rst => rst_s,
