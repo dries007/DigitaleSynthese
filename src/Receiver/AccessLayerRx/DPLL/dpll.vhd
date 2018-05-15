@@ -13,6 +13,7 @@ entity dpll is
         clk_en: in std_logic;
         rst: in std_logic;
         
+        extb: out std_logic;
         sdi_spread: in std_logic;
         chip_sample: out std_logic;
         chip_sample1: out std_logic;
@@ -80,6 +81,7 @@ architecture structural of dpll is
 
 begin
 
+    extb <= extb_s;
     chip_sample <= chip_sample_s;
     chip_sample1 <= chip_sample1_s;
     chip_sample2 <= chip_sample2_s;

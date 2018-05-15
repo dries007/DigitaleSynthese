@@ -1,31 +1,27 @@
 -- Dries Kennes
--- Transition segment decoder
+-- AccessLayer (RX) Test
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.std_logic_arith.all;
 use IEEE.std_logic_unsigned.all;
 
-use work.pkg_segments.all;
+entity accesslayerrx_tb is
+end entity ; -- accesslayerrx_tb
 
-entity dpll_tb is
-end dpll_tb;
-
-architecture behav of dpll_tb is
-
-    component dpll is
+architecture arch of accesslayerrx_tb is
+    component accesslayerrx is
         port (
             clk: in std_logic;
             clk_en: in std_logic;
             rst: in std_logic;
-            
+
             sdi_spread: in std_logic;
-            extb: out std_logic;
-            chip_sample: out std_logic;
-            chip_sample1: out std_logic;
-            chip_sample2: out std_logic
-        );
-    end component;
-    for uut : dpll use entity work.dpll(structural);
+            dip_sw : in std_logic_vector(1 downto 0);
+            bit_sample: out std_logic;
+            data_bit: out std_logic
+        ) ;
+    end component ; -- accesslayerrx
+    for uut : accesslayerrx use entity work.accesslayerrx(arch);
 
     component transmitter is
         port (
@@ -48,38 +44,39 @@ architecture behav of dpll_tb is
     signal end_of_sim : boolean := false;
 
     signal clk_s:  std_logic;
-    signal rst_s:  std_logic;
     signal clk_en_s: std_logic;
+    signal clk_en_tx_s: std_logic;
     signal counter: integer range 0 to 16;
+    signal rst_s:  std_logic;
+
+    signal sdi_spread_s : std_logic;
+    signal dip_sw_s : std_logic_vector(1 downto 0);
+    signal bit_sample_s : std_logic;
+    signal data_bit_s : std_logic;
 
     signal up_s:  std_logic;
     signal down_s: std_logic;
-    signal dip_s:  std_logic_vector(1 downto 0);
-
-    signal sdi_spread_s: std_logic;
-    signal chip_sample_s, chip_sample1_s, chip_sample2_s:  std_logic;
 
 begin
-
-    uut: dpll port map(
+    uut: accesslayerrx port map(
         clk => clk_s,
-        clk_en => '1',
         rst => rst_s,
+        clk_en => clk_en_s,
 
         sdi_spread => sdi_spread_s,
-        chip_sample => chip_sample_s,
-        chip_sample1 => chip_sample1_s,
-        chip_sample2 => chip_sample2_s
+        dip_sw => dip_sw_s,
+        bit_sample => bit_sample_s,
+        data_bit => data_bit_s
     );
 
     tx: transmitter port map(
         clk => clk_s,
-        clk_en => clk_en_s,
+        clk_en => clk_en_tx_s,
         rst => rst_s,
 
         up => up_s,
         down => down_s,
-        dip => dip_s,
+        dip => dip_sw_s,
         segments => open,
         sdo_spread => sdi_spread_s
     );
@@ -88,7 +85,7 @@ begin
     begin 
         clk_s <= '0';
         counter <= 0;
-        clk_en_s <= '0';
+        clk_en_tx_s <= '0';
         wait for period/2;
         loop
             clk_s <= '0';
@@ -96,10 +93,10 @@ begin
             clk_S <= '1';
             if counter = 15 then
                 counter <= 0;
-                clk_en_s <= '1';
+                clk_en_tx_s <= '1';
             else
                 counter <= counter + 1;
-                clk_en_s <= '0';
+                clk_en_tx_s <= '0';
             end if;
             wait for period/2;
         exit when end_of_sim;
@@ -108,12 +105,13 @@ begin
     end process clock;
 
     tb : process
+
         procedure reset is
         begin
             rst_s <= '1';
-            wait for 16*5*period;
+            wait for 5*period;
             rst_s <= '0';
-            wait for 16*5*period;
+            wait for 5*period;
         end procedure;
 
         procedure tx(n: integer) is
@@ -156,10 +154,10 @@ begin
         end procedure;
 
     begin
-
+        clk_en_s <= '1';
         up_s <= '0';
         down_s <= '0';
-        dip_s <= "00";
+        dip_sw_s <= "00";
         reset;
 
         tx(5);
@@ -170,7 +168,7 @@ begin
         bounce(up_s, 30);
         tx(5);
         
-        dip_s <= "01";
+        dip_sw_s <= "01";
         reset;
         tx(5);
         bounce(up_s, 1);
@@ -180,7 +178,7 @@ begin
         bounce(up_s, 30);
         tx(5);
 
-        dip_s <= "10";
+        dip_sw_s <= "10";
         reset;
         tx(5);
         bounce(up_s, 1);
@@ -190,7 +188,7 @@ begin
         bounce(up_s, 30);
         tx(5);
 
-        dip_s <= "11";
+        dip_sw_s <= "11";
         reset;
         tx(5);
         bounce(up_s, 1);
@@ -204,6 +202,6 @@ begin
         -- end of sim
         end_of_sim <= true;
         wait;
-    end process;
+    end process ; -- tb
 
-end architecture ; -- behav
+end architecture ; -- arch
