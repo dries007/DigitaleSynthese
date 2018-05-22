@@ -21,7 +21,7 @@ architecture arch of pngen_r_tb is
             pn_ml1: out std_logic;
             pn_ml2: out std_logic;
             pn_gold: out std_logic;
-            full_seq: out std_logic
+            bit_sample: out std_logic
         );
     end component;
     for uut : pngen_r use entity work.pngen_r(behav);
@@ -40,7 +40,7 @@ architecture arch of pngen_r_tb is
     signal pn_ml1_s: std_logic;
     signal pn_ml2_s: std_logic;
     signal pn_gold_s: std_logic;
-    signal full_seq_s: std_logic;
+    signal bit_sample_s: std_logic;
 
 begin
 
@@ -54,7 +54,7 @@ begin
         pn_ml1 => pn_ml1_s,
         pn_ml2 => pn_ml2_s,
         pn_gold => pn_gold_s,
-        full_seq => full_seq_s
+        bit_sample => bit_sample_s
     );
 
     clock : process

@@ -73,7 +73,7 @@ architecture arch of accesslayerrx is
             pn_ml1: out std_logic;
             pn_ml2: out std_logic;
             pn_gold: out std_logic;
-            full_seq: out std_logic
+            bit_sample: out std_logic
         );
     end component;
     for pngen_r_u : pngen_r use entity work.pngen_r(behav);
@@ -143,7 +143,7 @@ begin
         pn_ml1 => pn_ml1_s,
         pn_ml2 => pn_ml2_s,
         pn_gold => pn_gold_s,
-        full_seq => bit_sample_s
+        bit_sample => bit_sample_s
     );
 
 end architecture ; -- arch

@@ -11,21 +11,45 @@ entity pngen_r is
         clk_en: in std_logic;
         rst: in std_logic;
 
-        chip_sample: in std_logic; -- TODO: Use as "clock"
+        chip_sample: in std_logic;
         seq_det: in std_logic;
         pn_ml1: out std_logic;
         pn_ml2: out std_logic;
         pn_gold: out std_logic;
-        full_seq: out std_logic
+        bit_sample: out std_logic
     );
 end entity;
 
 architecture behav of pngen_r is
 
+    component edgedetect is
+        port (
+            clk: in std_logic;
+            clk_en: in std_logic;
+            rst: in std_logic;
+
+            inp: in std_logic;
+            outp: out std_logic
+        );
+    end component;
+    for ed : edgedetect use entity work.edgedetect(behav);
+
     signal pres_sr1, next_sr1: std_logic_vector(4 downto 0);
     signal pres_sr2, next_sr2: std_logic_vector(4 downto 0);
 
+    signal full_seq_s: std_logic := '0';
+
 begin
+
+    ed: edgedetect PORT MAP(
+        clk => clk,
+        clk_en => clk_en,
+        rst => rst,
+
+        inp => full_seq_s,
+        outp => bit_sample
+    );
+
     -- Lowest bit is output.
     pn_ml1 <= pres_sr1(0);
     pn_ml2 <= pres_sr2(0);
@@ -39,8 +63,13 @@ begin
                 pres_sr1 <= "00010";
                 pres_sr2 <= "00111";
             else
-                pres_sr1 <= next_sr1;
-                pres_sr2 <= next_sr2;
+                if chip_sample = '1' then
+                    pres_sr1 <= next_sr1;
+                    pres_sr2 <= next_sr2;
+                else
+                    pres_sr1 <= pres_sr1;
+                    pres_sr2 <= pres_sr2;
+                end if;
             end if;
         end if;
     end process;
@@ -64,9 +93,9 @@ begin
 
         -- Send out start pulse.
         if (pres_sr1 = "00001") then
-            full_seq <= '1';
+            full_seq_s <= '1';
         else
-            full_seq <= '0';
+            full_seq_s <= '0';
         end if;
     end process;
 

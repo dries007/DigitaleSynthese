@@ -1,27 +1,27 @@
 -- Dries Kennes
--- AccessLayer (RX) Test
+-- Receiver (Test Bench)
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.std_logic_arith.all;
 use IEEE.std_logic_unsigned.all;
 
-entity accesslayerrx_tb is
-end entity; -- accesslayerrx_tb
+entity receiver_tb is
+end entity ; -- receiver_tb
+    
+architecture arch of receiver_tb is
 
-architecture arch of accesslayerrx_tb is
-    component accesslayerrx is
+    component receiver is
         port (
             clk: in std_logic;
             clk_en: in std_logic;
             rst: in std_logic;
 
-            sdi_spread: in std_logic;
-            dip_sw : in std_logic_vector(1 downto 0);
-            bit_sample: out std_logic;
-            data_bit: out std_logic
-        ) ;
-    end component ; -- accesslayerrx
-    for uut : accesslayerrx use entity work.accesslayerrx(arch);
+            dip: in std_logic_vector(1 downto 0);
+            segments: out std_logic_vector(7 downto 0);
+            sdi_spread: in std_logic
+        );
+    end component;
+    for uut : receiver use entity work.receiver(arch);
 
     component transmitter is
         port (
@@ -43,30 +43,29 @@ architecture arch of accesslayerrx_tb is
 
     signal end_of_sim : boolean := false;
 
-    signal clk_s:  std_logic := '0';
-    signal clk_en_s: std_logic := '0';
-    signal clk_en_tx_s: std_logic := '0';
+    signal clk_s:  std_logic;
+    signal clk_en_s: std_logic;
+    signal clk_en_tx_s: std_logic;
+    signal rst_s:  std_logic;
     signal counter: integer range 0 to 20 := 0;
-    signal rst_s:  std_logic := '0';
 
-    signal sdi_spread_s : std_logic := '0';
-    signal dip_sw_s : std_logic_vector(1 downto 0) := "00";
-    signal bit_sample_s : std_logic := '0';
-    signal data_bit_s : std_logic := '0';
+    signal dip_sw_s:  std_logic_vector(1 downto 0);
+    signal segments_s:  std_logic_vector(7 downto 0);
+    signal sdi_spread_s: std_logic;
 
     signal up_s:  std_logic;
     signal down_s: std_logic;
 
 begin
-    uut: accesslayerrx port map(
+
+    uut: receiver port map(
         clk => clk_s,
         rst => rst_s,
         clk_en => clk_en_s,
 
         sdi_spread => sdi_spread_s,
-        dip_sw => dip_sw_s,
-        bit_sample => bit_sample_s,
-        data_bit => data_bit_s
+        dip => dip_sw_s,
+        segments => segments_s
     );
 
     tx: transmitter port map(
@@ -153,6 +152,7 @@ begin
             end loop;
         end procedure;
 
+
     begin
         clk_en_s <= '1';
         up_s <= '0';
@@ -205,3 +205,4 @@ begin
     end process ; -- tb
 
 end architecture ; -- arch
+
