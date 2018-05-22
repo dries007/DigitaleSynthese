@@ -23,7 +23,7 @@ end nco;
 architecture behav of nco is
 
     signal chip_sample_next, chip_sample_s, chip_sample1_s, chip_sample2_s: std_logic;
-    signal pres_cnt, next_cnt: integer range 0 to 18;
+    signal pres_cnt, next_cnt: integer range 0 to 18; -- 18 due to offsets when starting 15 + 3 = 18
 
 begin
 

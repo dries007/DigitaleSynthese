@@ -22,8 +22,8 @@ architecture behav of matchedfilter is
 
     signal pres_sr, next_sr: std_logic_vector(30 downto 0);
 
-    constant pattern1 : std_logic_vector(30 downto 0) := "1101001100000111001000101011110";
-    constant pattern2 : std_logic_vector(30 downto 0) := "0110010000010111011010100111100";
+    constant pattern1 : std_logic_vector(30 downto 0) := "1101001100000111001000101011110"; -- From file
+    constant pattern2 : std_logic_vector(30 downto 0) := "0110010000010111011010100111100"; -- same
 
 begin
 

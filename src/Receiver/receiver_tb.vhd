@@ -1,5 +1,8 @@
 -- Dries Kennes
 -- Receiver (Test Bench)
+--
+-- See dpll_tb for more info. This TB is the same, except more componenets are tested.
+--
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.std_logic_arith.all;
@@ -108,7 +111,7 @@ begin
         procedure reset is
         begin
             rst_s <= '1';
-            wait for 5*16*period;
+            wait for 5*16*period; -- This was a massive source of pain. See dpll_tb for more info. This TB is the same, except more componenets are tested.
             rst_s <= '0';
             wait for 5*16*period;
         end procedure;

@@ -94,11 +94,12 @@ architecture arch of accesslayerrx is
 
 begin
 
+    -- despreading gebeurd hier. Dit zijn ook de muxen in de access layer op het blockschema.
     bit_sample <= bit_sample_s;
-    chip_in_s <= sdi_spread when dip_sw = "00" else despread_s;
-    despread_s <= sdi_spread xor pn_seq_s;
-    pn_seq_s <= pn_ml1_s when dip_sw = "01" else pn_ml2_s when dip_sw = "10" else pn_gold_s;
-    seq_det_s <= extb_s when dip_sw = "00" else seq_det_out_s;
+    chip_in_s <= sdi_spread when dip_sw = "00" else despread_s; -- Mux 1 ('laatste' voor de correlator)
+    despread_s <= sdi_spread xor pn_seq_s; -- Despreading (xor)
+    pn_seq_s <= pn_ml1_s when dip_sw = "01" else pn_ml2_s when dip_sw = "10" else pn_gold_s; -- Mux 2 (voor despread)
+    seq_det_s <= extb_s when dip_sw = "00" else seq_det_out_s; -- Mux 3 ('eerste', voor pngen)
 
     correlator_u: correlator PORT MAP(
         clk => clk,
