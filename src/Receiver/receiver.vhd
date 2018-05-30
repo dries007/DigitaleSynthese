@@ -46,12 +46,15 @@ architecture arch of receiver is
     signal data_bit_s: std_logic;
     signal count_s, count_next_s: std_logic_vector(3 downto 0);
     signal data_s, data_next_s: std_logic_vector(10 downto 0);
+	 
+	 signal rst_s : std_logic;
+	 signal segments_s : std_logic_vector(7 downto 0);
 
 begin
 
     al: accesslayerrx port map(
         clk => clk,
-        rst => rst,
+        rst => rst_s,
         clk_en => clk_en,
 
         sdi_spread => sdi_spread,
@@ -63,8 +66,11 @@ begin
     sevensegdecoder_s: sevensegdecoder port map(
         inp => count_s,
         dp => rst,
-        outp => segments
+        outp => segments_s
     );
+	 
+	 segments <= not segments_s;
+	 rst_s <= not rst;
 
     sync_rec : process(clk)
     begin

@@ -40,7 +40,7 @@ begin
 
     bit_out <= bit_out_s;
 
-    comb_correlator : process(chip_in, chip_sample, bit_sample, cnt_s)
+    comb_correlator : process(chip_in, chip_sample, bit_sample, cnt_s, bit_out_s)
     begin
         if chip_sample = '1' then
             if chip_in = '1' then

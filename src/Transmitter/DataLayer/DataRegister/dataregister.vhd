@@ -39,7 +39,7 @@ begin
     -- Top bit is data, shift left to output.
     outp <= pres_data(10);
 
-    comb_dataregister: process(pres_data, load, shift)
+    comb_dataregister: process(pres_data, load, shift, data)
     begin
         next_data <= pres_data;
         if shift = '1' then

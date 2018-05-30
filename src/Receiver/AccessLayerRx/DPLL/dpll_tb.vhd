@@ -1,7 +1,5 @@
 -- Dries Kennes
 -- Transition segment decoder
---
--- Warning: Simulates fairly slow (a couple of seconds)
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.std_logic_arith.all;
@@ -51,8 +49,8 @@ architecture behav of dpll_tb is
 
     signal clk_s:  std_logic;
     signal rst_s:  std_logic;
-    signal clk_en_s: std_logic; -- 16x slower clock enable for transmitter side of things
-    signal counter: integer range 0 to 16; -- counter for clk_en_s 
+    signal clk_en_s: std_logic;
+    signal counter: integer range 0 to 16;
 
     signal up_s:  std_logic;
     signal down_s: std_logic;
@@ -96,7 +94,7 @@ begin
             clk_s <= '0';
             wait for period/2;
             clk_S <= '1';
-            if counter = 15 then -- 16x slower clk_en_s
+            if counter = 15 then
                 counter <= 0;
                 clk_en_s <= '1';
             else
@@ -113,21 +111,21 @@ begin
         procedure reset is
         begin
             rst_s <= '1';
-            wait for 16*5*period; -- This was a massive source of pain. If you don't add the 16x here, the reset won't take effect on the tx device.
+            wait for 16*5*period;
             rst_s <= '0';
-            wait for 16*5*period; -- Same here
+            wait for 16*5*period;
         end procedure;
 
         procedure tx(n: integer) is
         begin
-            wait for 16*31*11*n*period; -- also 16x
+            wait for 16*31*11*n*period;
         end procedure;
 
         procedure bounce(signal x: out std_logic; n: integer) is
         begin 
             for i in 0 to n-1
             loop
-                x <= '1'; wait for 16*period/4;  -- Once again, all x16 slower!
+                x <= '1'; wait for 16*period/4;
                 x <= '0'; wait for 16*2*period/4;
                 x <= '1'; wait for 16*period/2;
                 x <= '0'; wait for 16*3*period/2;

@@ -121,11 +121,11 @@ begin
         cnt_down => edge_down,
         cnt => count_s
     );
-    count <= count_s; -- Also output this for the 7seg disp.
+    count <= count_s;
 
     sevensegdecoder_s: sevensegdecoder PORT MAP(
         inp => count_s,
-        dp => rst, -- Decimal point = feedback on reset
+        dp => rst,
         outp => segments
     );
 

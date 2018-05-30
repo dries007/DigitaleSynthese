@@ -74,7 +74,7 @@ begin
         end if;
     end process;
 
-    comb_pngen_r : process(pres_sr1, pres_sr2)
+    comb_pngen_r : process(pres_sr1, pres_sr2, seq_det)
         -- GHDL doesn't like using xor in a concat, so use tmp variable.
         variable tmp: std_logic;
     begin

@@ -1,0 +1,41 @@
+# XUP DSSS board UCF File
+
+# Clock
+Net clk LOC="AJ15";
+Net clk IOSTANDARD = LVCMOS25;
+Net clk PERIOD = 10000 ps;
+
+# Data 7 segment
+NET "segments(7)" LOC = "R6" | IOSTANDARD = LVTTL | SLEW = SLOW; # DP
+NET "segments(6)" LOC = "R7"  | IOSTANDARD = LVTTL | SLEW = SLOW; # A
+NET "segments(5)" LOC = "P2"  | IOSTANDARD = LVTTL | SLEW = SLOW;
+NET "segments(4)"LOC = "R2"  | IOSTANDARD = LVTTL | SLEW = SLOW;
+NET "segments(3)"LOC = "T2"  | IOSTANDARD = LVTTL | SLEW = SLOW;
+NET "segments(2)"LOC = "P4"  | IOSTANDARD = LVTTL | SLEW = SLOW;
+NET "segments(1)"LOC = "P5"  | IOSTANDARD = LVTTL | SLEW = SLOW;
+NET "segments(0)"LOC = "R8"  | IOSTANDARD = LVTTL | SLEW = SLOW; #G
+
+# Push Buttons
+# NET "up" LOC = "N3"   | IOSTANDARD = LVTTL | SLEW = SLOW;
+# NET "down" LOC = "N4" | IOSTANDARD = LVTTL | SLEW = SLOW;
+NET "rst" LOC = "P7"  | IOSTANDARD = LVTTL | SLEW = SLOW;
+
+# DIP Switches
+NET "dip(0)" LOC = "N1"  | IOSTANDARD = LVTTL | SLEW = SLOW;
+NET "dip(1)" LOC = "M3"  | IOSTANDARD = LVTTL | SLEW = SLOW;
+
+# Rotary encoder
+#NET "channel_a" LOC = "T6"  | IOSTANDARD = LVTTL | SLEW = SLOW;
+#NET "channel_b" LOC = "V1"  | IOSTANDARD = LVTTL | SLEW = SLOW;
+
+# Transceiver
+# NET "sdo_spread" LOC = "N5"  | IOSTANDARD = LVTTL | SLEW = SLOW;
+NET "sdi_spread" LOC = "N6"  | IOSTANDARD = LVTTL | SLEW = SLOW;
+
+# Test points
+#NET "TP1" LOC = "U3"  | IOSTANDARD = LVTTL | SLEW = SLOW;
+#NET "TP2" LOC = "T7"  | IOSTANDARD = LVTTL | SLEW = SLOW;
+#NET "TP3" LOC = "T4"  | IOSTANDARD = LVTTL | SLEW = SLOW;
+#NET "TP4" LOC = "U2"  | IOSTANDARD = LVTTL | SLEW = SLOW;
+
+

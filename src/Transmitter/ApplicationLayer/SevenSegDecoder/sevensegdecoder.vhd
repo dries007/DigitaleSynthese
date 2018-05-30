@@ -15,7 +15,7 @@ end sevensegdecoder;
 
 architecture behav of sevensegdecoder is
 begin
-    comb_sevensegdecoder: process(inp)
+    comb_sevensegdecoder: process(inp, dp)
     begin
         case inp is
         --    bin                     abcdefg
